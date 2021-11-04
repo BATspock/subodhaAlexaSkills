@@ -1,0 +1,42 @@
+{
+  "manifest": {
+    "apis": {
+      "custom": {
+        "endpoint": {
+          "uri": "arn:aws:lambda:ap-south-1:055750845894:function:serverlessrepo-Alexa-Node10-Template-Yunmi-code-X4axiXfOcPqm"
+        },
+        "interfaces": [
+          {
+            "type": "AUDIO_PLAYER"
+          }
+        ]
+      }
+    },
+    "manifestVersion": "1.0",
+    "publishingInformation": {
+      "category": "KNOWLEDGE_AND_TRIVIA",
+      "distributionCountries": [],
+      "isAvailableWorldwide": true,
+      "locales": {
+        "de-DE": {
+          "name": "VE test skill 1.0"
+        },
+        "en-US": {
+          "description": "Sample Full Description",
+          "examplePhrases": [
+            "Alexa open hello world",
+            "hello",
+            "help"
+          ],
+          "keywords": [],
+          "name": "VE test skill 1.0",
+          "summary": "Sample Short Description"
+        },
+        "hi-IN": {
+          "name": "VE test skill 1.0"
+        }
+      },
+      "testingInstructions": "Sample Testing Instructions."
+    }
+  }
+}
