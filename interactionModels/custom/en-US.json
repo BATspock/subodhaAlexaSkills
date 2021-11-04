@@ -1,0 +1,231 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "account link",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "HelloWorldIntent",
+          "slots": [],
+          "samples": [
+            "hello",
+            "how are you",
+            "say hi world",
+            "say hi",
+            "hi",
+            "say hello world",
+            "say hello"
+          ]
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.FallbackIntent",
+          "samples": []
+        },
+        {
+          "name": "PlayAudio",
+          "slots": [],
+          "samples": [
+            "audio please ",
+            "I want to listen to an audio",
+            "play me an audio",
+            "let me hear something "
+          ]
+        },
+        {
+          "name": "GetRemoteData",
+          "slots": [],
+          "samples": [
+            "how many astronauts are in space",
+            "how many humans are in space",
+            "how many people are in space now",
+            "how many people are in space"
+          ]
+        },
+        {
+          "name": "teachSubTopic",
+          "slots": [
+            {
+              "name": "topic",
+              "type": "listOfSubTopics"
+            }
+          ],
+          "samples": [
+            "Tell me more about {topic}",
+            "{topic}",
+            "teach me about {topic}",
+            "I want to know about {topic}",
+            "I want to learn {topic}"
+          ]
+        },
+        {
+          "name": "teachTopics",
+          "slots": [
+            {
+              "name": "subject",
+              "type": "listOfSubjects"
+            }
+          ],
+          "samples": [
+            "teach me {subject}",
+            "Teach me more about {subject} today",
+            "What are the subtopics for {subject}",
+            "Tell me more about {subject}",
+            "I want to learn about {subject}"
+          ]
+        }
+      ],
+      "types": [
+        {
+          "values": [
+            {
+              "name": {
+                "value": "Science",
+                "synonyms": [
+                  "science",
+                  "general science"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "Mathematics",
+                "synonyms": [
+                  "maths",
+                  "math",
+                  "Maths"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "English",
+                "synonyms": [
+                  "english",
+                  "english language"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "Hindi",
+                "synonyms": [
+                  "hindi",
+                  "hindi language"
+                ]
+              }
+            }
+          ],
+          "name": "listOfSubjects"
+        },
+        {
+          "values": [
+            {
+              "name": {
+                "value": "Water Cycle",
+                "synonyms": [
+                  "water cycle"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "Condensation",
+                "synonyms": [
+                  "condesation"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "Evaporation",
+                "synonyms": [
+                  "evaporation"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "Triangles",
+                "synonyms": [
+                  "triangles "
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "Circles",
+                "synonyms": [
+                  "circles"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "Algebra",
+                "synonyms": [
+                  "algebra"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "Authors",
+                "synonyms": [
+                  "authors"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "Poems",
+                "synonyms": [
+                  "poems"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "Grammar",
+                "synonyms": [
+                  "grammar"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "sandhi"
+              }
+            },
+            {
+              "name": {
+                "value": "varnamala"
+              }
+            },
+            {
+              "name": {
+                "value": "vyakaran"
+              }
+            }
+          ],
+          "name": "listOfSubTopics"
+        }
+      ]
+    }
+  },
+  "version": "7"
+}
