@@ -11,6 +11,14 @@
           "name": "PlayStreamIntent",
           "slots": [],
           "samples": [
+            "start to play",
+            "begin to play",
+            "on start",
+            "to start",
+            "start",
+            "start playing",
+            "ready",
+            "to ready",
             "to play",
             "to start playing",
             "to begin playing"
@@ -85,5 +93,5 @@
       "types": []
     }
   },
-  "version": "7"
+  "version": "13"
 }

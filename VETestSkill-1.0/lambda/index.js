@@ -4,6 +4,7 @@
 
 const Alexa = require('ask-sdk-core');
 const https = require('https');
+///////////////////////////////////////////////////
 const i18next = require('i18next');
 const sprintf = require('i18next-sprintf-postprocessor');
 
@@ -15,15 +16,27 @@ const s3SigV4Client = new AWS.S3({
     region: process.env.S3_PERSISTENCE_REGION
 });
 
+///////////////////////////////////////////////////
 const langLabels = {
   "en-US": {
     translation: {
-      WelcomeMessage: "Welcome to Vision Empower test skill, what can I help you?"
+      WelcomeMessage: "Welcome {{ UserName }} to Vision Empower test skill, what can I help you?",
+      TitleMessage: "Starting {{ AudioTitle }}",
+      TitleStream0: "Episode Number 1"
     }
   },
   "de-DE": {
     translation: {
-      WelcomeMessage: "Willkommen bei Vision Empower Test-Kompetenz, was kann ich Ihnen helfen?"
+      WelcomeMessage: "Willkommen {{ UserName }} bei Vision Empower Test-Kompetenz, was kann ich Ihnen helfen?",
+      TitleMessage: "Beginn des {{ AudioTitle }}",
+      TitleStream0: "Episode Nr. 1"
+    }
+  },
+  "hi-IN": {
+    translation: {
+      WelcomeMessage: "Vision Empower टेस्ट कौशल में आपका स्वागत है, मैं आपकी क्या मदद कर सकता हूँ, {{ UserName }}?",
+      TitleMessage: "{{ AudioTitle }} आरंभ हो रहा है",
+      TitleStream0: "एपिसोड क्र. 1"
     }
   }
 }
@@ -74,6 +87,8 @@ const STREAMS = [
   },
 ];
 
+///////////////////////////////////////////////////
+
 i18next.use(sprintf).init({
   overloadTranslateionOptionHandler: sprintf.overloadTranslationOptionHandler,
   returnObjects: true,
@@ -98,10 +113,10 @@ const LaunchRequestHandler = {
           const { name } = info;
   
           //speakOutput = `Welcome ${name}, to vision empower test skill. Which would you like to try?`;
-          speakOutput = i18next.t('WelcomeMessage');
+          speakOutput = i18next.t('WelcomeMessage', { UserName: name });
         } else {
           //speakOutput = 'Welcome to vision empower test skill. Which would you like to try?';
-          speakOutput = i18next.t('WelcomeMessage');
+          speakOutput = i18next.t('WelcomeMessage', { UserName: '' });
         }
 
         return handlerInput.responseBuilder
@@ -158,9 +173,17 @@ const PlayStreamIntentHandler = {
   },
   handle(handlerInput) {
     const stream = STREAMS[0];
+    let speakOutput = '';
 
+    i18next.changeLanguage(handlerInput.requestEnvelope.request.locale);
+
+    const title = i18next.t('TitleStream0');
+     //speakOutput = i18next.t(`starting ${stream.metadata.title}`);
+    speakOutput = i18next.t(`TitleMessage`, {AudioTitle: title});
+    
     handlerInput.responseBuilder
-      .speak(`starting ${stream.metadata.title}`)
+      //.speak(`starting ${stream.metadata.title}`)
+      .speak(speakOutput)
       .addAudioPlayerPlayDirective('REPLACE_ALL', stream.url, stream.token, 0, null, stream.metadata);
 
     return handlerInput.responseBuilder
